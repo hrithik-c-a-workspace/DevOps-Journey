@@ -4,23 +4,22 @@ it is upper- or lowercase.
 '''
 
 def string_case_checker(value=''):
-    if not value.strip():
+    if len(value) == 0:
         print('Input cannot be empty.')
         return
+    
+    if not value.isalpha():
+        print('Invalid Input')
+        return
 
-    cases = {
-        'upper': False,
-        'lower': False
-    }
     if value.isupper():
-        cases['upper'] = True
+        return 'upper'
     elif value.islower(): 
-        cases['lower'] = True
-
-    for key, value in cases.items():
-        if value is True:
-            return key
-    return    
+        return 'lower'
+    elif any(c.isupper() for c in value) and any(c.islower() for c in value):
+        return 'mixed'
+    
+    return
 
 def get_input():
     string = input('Enter a string: ').strip()
