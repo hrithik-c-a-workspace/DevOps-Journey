@@ -4,8 +4,8 @@
 import re
 
 # Reusable functions
-def input_validator(value = ''):
-    if len(value) == 0:
+def input_validator(value=''):
+    if not value.strip():
         print('Input cannot be empty.')
         return False
     pattern = r"^[A-Z][a-zA-Z\s\-]*$"
@@ -16,11 +16,10 @@ def input_validator(value = ''):
     return False
 
 def get_input():
-        name = str(input('Enter a name: '))
-        # name.strip() 
+        name = input('Enter a name: ').strip()
         return name if input_validator(value=name) else None
 
 entered_name = get_input()
 
-if entered_name != None:
+if entered_name is not None:
     print(f'The name you have entered is: {entered_name}')
