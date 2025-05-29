@@ -15,9 +15,12 @@ def input_validator(value=''):
     print('Please enter a valid Input.')
     return False
 
+def normalised_input(value=''):
+    return " ".join(value.split())  
+
 def get_input():
-        name = input('Enter a name: ').strip()
-        return name if input_validator(value=name) else None
+    name = input('Enter a name: ').strip()
+    return normalised_input(name) if input_validator(value=name) else None
 
 entered_name = get_input()
 
