@@ -8,7 +8,6 @@ def input_validator(value = ''):
     if len(value) == 0:
         print('Input cannot be empty.')
         return False
-    
     pattern = r"^[A-Z][a-zA-Z\s\-]*$"
     if re.fullmatch(pattern=pattern, string=value):
         return True
@@ -18,10 +17,8 @@ def input_validator(value = ''):
 
 def get_input():
         name = str(input('Enter a name: '))
-        name.strip()
-        if input_validator(value=name):
-                return name
-        return None
+        # name.strip() 
+        return name if input_validator(value=name) else None
 
 entered_name = get_input()
 
