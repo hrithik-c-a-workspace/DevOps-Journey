@@ -19,16 +19,19 @@ def name_validator(value=''):
     return False
 
 def normalised_input(value=''):
-    return " ".join(value.split())  
+    return " ".join(str(value).split()) 
 
-def get_input():
-    name = input('Enter a name: ').strip()
-    if input_validator(value=name) and name_validator(value=name):
-        entered_name = normalised_input(name) if input_validator(value=name) else None
-        return { 'name': entered_name }
+def default_helper():
+    return True
+
+def get_input(prompt='', helperFunction = default_helper):
+    entered_value = input(f'{prompt}: ').strip()
+    if input_validator(value=entered_value) and helperFunction(entered_value):
+        final_value = normalised_input(entered_value) if input_validator(value=entered_value) else None
+        return final_value
     return None
 
-entered_values = get_input()
+input_name = get_input('Enter a name', helperFunction=name_validator)
 
-if entered_values is not None:
-    print(f'The name you have entered is: {entered_values['name']}')
+if input_name is not None:
+    print(f'The name you have entered is: {input_name}')
