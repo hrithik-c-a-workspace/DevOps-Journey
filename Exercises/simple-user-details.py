@@ -15,7 +15,7 @@ def name_validator(value=''):
     if re.fullmatch(pattern=pattern, string=value):
         return True
     
-    print('Please enter a name.')
+    print('Please enter a valid name.')
     return False
 
 def normalised_input(value=''):
@@ -23,9 +23,9 @@ def normalised_input(value=''):
 
 def get_input():
     name = input('Enter a name: ').strip()
-    if input_validator(value=name):
+    if input_validator(value=name) and name_validator(value=name):
         entered_name = normalised_input(name) if input_validator(value=name) else None
-        return { name: entered_name }
+        return { 'name': entered_name }
     return None
 
 entered_values = get_input()
