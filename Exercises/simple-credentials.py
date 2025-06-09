@@ -1,5 +1,5 @@
 '''
-    This is a simple credentials programs that helps to understand concept of continue statement.
+    This is a simple credentials program that helps to understand concept of continue statement.
 '''
 
 print('Hello user, Enter your credentials. \n')
@@ -12,7 +12,7 @@ while True:
     print("Enter your password to continue. Hint: It's your catchphrase!")
 
     print("Something in the way")
-    for i in range(3):
+    for _ in range(3):
          print("mmm 🎶")
 
     print('Who are you?')
