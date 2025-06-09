@@ -1,3 +1,7 @@
+'''
+    This is a program that helps to understand the concept of break statement.
+'''
+
 number = None
 
 while True:
